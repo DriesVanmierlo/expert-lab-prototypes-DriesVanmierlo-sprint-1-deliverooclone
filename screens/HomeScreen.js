@@ -6,6 +6,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import Categories from '../components/Categories';
 import FeaturedRow from '../components/FeaturedRow';
 import sanityClient from '../sanity';
+import RestaurantSkeleton from '../components/RestaurantSkeleton';
 
 const HomeScreen = () => {
     const navigation = useNavigation();
@@ -77,6 +78,8 @@ const HomeScreen = () => {
         >
             {/* Categories */}
             <Categories />
+
+            <RestaurantSkeleton />
 
             {/* Featured Rows */}
 
