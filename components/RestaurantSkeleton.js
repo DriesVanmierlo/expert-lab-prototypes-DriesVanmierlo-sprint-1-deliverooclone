@@ -7,8 +7,17 @@ import Svg, {Circle, Rect } from 'react-native-svg'
 
 const RestaurantSkeleton = () => {
   return (
+    <View>
 
-    <ScrollView 
+        <View className='pl-4'>
+           <SvgAnimatedLinearGradient duration={1000} height={55} x2='110%' >
+            <Rect x="0" y="13" rx="4" ry="4" width="150" height="25"/>
+            <Rect x="0" y="43" rx="4" ry="4" width="75" height="15"/>
+        </SvgAnimatedLinearGradient> 
+        </View>
+        
+
+        <ScrollView 
         horizontal
         contentContainerStyle={{
             paddingHorizontal: 15,
@@ -34,6 +43,9 @@ const RestaurantSkeleton = () => {
             </SvgAnimatedLinearGradient>  
         </View>
     </ScrollView>
+    </View>
+
+    
     
   )
 }

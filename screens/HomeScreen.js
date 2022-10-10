@@ -11,6 +11,7 @@ import RestaurantSkeleton from '../components/RestaurantSkeleton';
 const HomeScreen = () => {
     const navigation = useNavigation();
     const [featuredCategories, setFeaturedCategories] = useState([]);
+    const [restaurantsAreLoaded, setRestaurantsAreLoaded] = useState(false);
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -19,7 +20,9 @@ const HomeScreen = () => {
     }, []);
 
     useEffect(() => {
-       sanityClient.fetch(`
+
+        setTimeout(()=>{
+          sanityClient.fetch(`
        *[_type == "featured"] {
         ...,
         restaurants[]->{
@@ -29,7 +32,11 @@ const HomeScreen = () => {
       }
        `).then((data) => {
         setFeaturedCategories(data);
-       })
+        setRestaurantsAreLoaded(true);
+       })  
+        }, 3000)
+
+       
     }, []);
 
   return (
@@ -78,19 +85,18 @@ const HomeScreen = () => {
         >
             {/* Categories */}
             <Categories />
-
-            <RestaurantSkeleton />
-
+            
             {/* Featured Rows */}
 
-            {featuredCategories?.map((category) => (
+            {restaurantsAreLoaded ? featuredCategories?.map((category) => (
                 <FeaturedRow
                 key={category._id}
                 id={category._id}
                 title={category.name}
                 description={category.short_description}
             />
-            ))}
+            )) : <View><RestaurantSkeleton /><RestaurantSkeleton /><RestaurantSkeleton /></View> }
+
 
         </ScrollView>
 
