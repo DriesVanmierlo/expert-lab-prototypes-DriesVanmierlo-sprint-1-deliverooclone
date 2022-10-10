@@ -20,9 +20,7 @@ const HomeScreen = () => {
     }, []);
 
     useEffect(() => {
-
-        setTimeout(()=>{
-          sanityClient.fetch(`
+        sanityClient.fetch(`
        *[_type == "featured"] {
         ...,
         restaurants[]->{
@@ -31,12 +29,11 @@ const HomeScreen = () => {
         },
       }
        `).then((data) => {
-        setFeaturedCategories(data);
-        setRestaurantsAreLoaded(true);
-       })  
-        }, 3000)
-
-       
+        setTimeout(()=>{
+            setFeaturedCategories(data);
+            setRestaurantsAreLoaded(true);
+        }, 3000);
+       })   
     }, []);
 
   return (
@@ -95,7 +92,7 @@ const HomeScreen = () => {
                 title={category.name}
                 description={category.short_description}
             />
-            )) : <View><RestaurantSkeleton /><RestaurantSkeleton /><RestaurantSkeleton /></View> }
+            )) : <View className='pt-2'><RestaurantSkeleton /><RestaurantSkeleton /><RestaurantSkeleton /></View> }
 
 
         </ScrollView>
