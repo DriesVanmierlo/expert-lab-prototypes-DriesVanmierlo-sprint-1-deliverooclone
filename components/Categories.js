@@ -37,7 +37,7 @@ const Categories = () => {
         {categoriesAreLoaded ? categories?.map((category) => (
           <CategoryCard key={category._id} title={category.name} imgUrl={urlFor(category.image).width(200).url()} />
         )) : categoriesPlaceholders.map((placeholder)=>(
-          <CategorySkeleton />
+          <CategorySkeleton key={placeholder} />
         )) }
         
     </ScrollView>

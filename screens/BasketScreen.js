@@ -28,14 +28,14 @@ const BasketScreen = () => {
     }, [items]);
 
   return (
-    <SafeAreaView className='flex-1 bg-white'>
+    <SafeAreaView className='flex-1 bg-white pt-3'>
       <View className=' flex-1 bg-gray-100'>
         <View className='p-5 border-b border-[#00CCBB] bg-white shadow-xs'>
             <View>
                 <Text className='text-lg font-bold text-center'>Basket</Text>
                 <Text className='text-center text-gray-400'>{restaurant.title}</Text>
             </View>
-            <TouchableOpacity onPress={navigation.goBack} className='rounded-full bg-gray-100 absolute top-3 right-5'>
+            <TouchableOpacity onPress={navigation.goBack} className='rounded-full bg-gray-100 absolute top-6 right-5'>
                 <XCircleIcon color="#00CCBB" height={50} width={50} />
             </TouchableOpacity>
         </View>
