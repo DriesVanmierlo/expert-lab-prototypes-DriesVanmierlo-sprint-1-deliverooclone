@@ -4,6 +4,7 @@ import { StarIcon } from 'react-native-heroicons/solid';
 import { MapPinIcon } from 'react-native-heroicons/outline';
 import { urlFor } from '../sanity';
 import { useNavigation } from '@react-navigation/native';
+import ProgressiveImage from './ProgressiveImage';
  
 
 const RestaurantCard = ({
@@ -39,10 +40,17 @@ const RestaurantCard = ({
         })
       }}
       >
-      <Image source={{
+      {/* <Image source={{
         uri: urlFor(imgUrl).url(),
       }} 
       className="h-36 w-64 rounded-sm"
+        /> */}
+        <ProgressiveImage
+          className="h-36 w-64 rounded-sm"
+          thumbnailSource={{ uri: urlFor(imgUrl).url() }}
+          source={{ uri: urlFor(imgUrl).url() }}
+          style={{ }}
+          resizeMode="cover"
         />
         <View className='px-3 pb-4'>
             <Text

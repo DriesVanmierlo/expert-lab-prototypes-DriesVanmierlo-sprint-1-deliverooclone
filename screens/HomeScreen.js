@@ -94,6 +94,17 @@ const HomeScreen = () => {
             />
             )) : <View className='pt-2'><RestaurantSkeleton /><RestaurantSkeleton /><RestaurantSkeleton /></View> }
 
+            {/* {restaurantsAreLoaded && featuredCategories?.map((category) => (
+                <FeaturedRow
+                key={category._id}
+                id={category._id}
+                title={category.name}
+                description={category.short_description}
+            />
+            ))}
+
+            {!restaurantsAreLoaded && <View className='pt-2'><RestaurantSkeleton /><RestaurantSkeleton /><RestaurantSkeleton /></View>} */}
+
 
         </ScrollView>
 

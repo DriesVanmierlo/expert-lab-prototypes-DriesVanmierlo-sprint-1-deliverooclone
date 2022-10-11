@@ -10,7 +10,7 @@ const RestaurantSkeleton = () => {
     <View>
 
         <View className='pl-4'>
-           <SvgAnimatedLinearGradient duration={1000} height={55} x2='110%' >
+           <SvgAnimatedLinearGradient primaryColor='#eeeeee' secondaryColor='#dddddd' duration={1000} height={55} x2='110%' >
             <Rect x="0" y="13" rx="4" ry="4" width="150" height="25"/>
             <Rect x="0" y="43" rx="4" ry="4" width="75" height="15"/>
         </SvgAnimatedLinearGradient> 
@@ -26,7 +26,7 @@ const RestaurantSkeleton = () => {
         className='pt-4' >
 
         <View className='bg-white mr-3 shadow w-64 '>
-            <SvgAnimatedLinearGradient duration={1000} height={230} x2='110%' >
+            <SvgAnimatedLinearGradient primaryColor='#eeeeee' secondaryColor='#dddddd' duration={1000} height={230} x2='110%' >
                 <Rect x="0" y="0" rx="0" ry="0" width="257" height="128"/>
                 <Rect x="25" y="141" rx="4" ry="4" width="150" height="20"/>
                 <Rect x="25" y="171" rx="4" ry="4" width="50" height="15"/>
@@ -35,7 +35,7 @@ const RestaurantSkeleton = () => {
         </View>
 
         <View className='bg-white mr-3 shadow w-64 '>
-            <SvgAnimatedLinearGradient duration={1000} height={230} x2='110%' >
+            <SvgAnimatedLinearGradient primaryColor='#eeeeee' secondaryColor='#dddddd' duration={1000} height={230} x2='110%' >
                 <Rect x="0" y="0" rx="0" ry="0" width="257" height="128"/>
                 <Rect x="25" y="141" rx="4" ry="4" width="150" height="20"/>
                 <Rect x="25" y="171" rx="4" ry="4" width="50" height="15"/>
