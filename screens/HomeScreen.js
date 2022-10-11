@@ -12,6 +12,8 @@ const HomeScreen = () => {
     const navigation = useNavigation();
     const [featuredCategories, setFeaturedCategories] = useState([]);
     const [restaurantsAreLoaded, setRestaurantsAreLoaded] = useState(false);
+    const [hideData, setHideData] = useState(true);
+    const [hidden, setHidden] = useState('hidden');
 
     useLayoutEffect(() => {
         navigation.setOptions({
@@ -32,7 +34,11 @@ const HomeScreen = () => {
         setTimeout(()=>{
             setFeaturedCategories(data);
             setRestaurantsAreLoaded(true);
-        }, 3000);
+            setTimeout(() => {
+                setHideData(false);
+                setHidden('');
+            }, 1000);
+        }, 2000);
        })   
     }, []);
 
@@ -85,25 +91,28 @@ const HomeScreen = () => {
             
             {/* Featured Rows */}
 
-            {restaurantsAreLoaded ? featuredCategories?.map((category) => (
+            {/* {restaurantsAreLoaded ? featuredCategories?.map((category) => (
                 <FeaturedRow
                 key={category._id}
                 id={category._id}
                 title={category.name}
                 description={category.short_description}
             />
-            )) : <View className='pt-2'><RestaurantSkeleton /><RestaurantSkeleton /><RestaurantSkeleton /></View> }
+            )) : <View className='pt-2'><RestaurantSkeleton /><RestaurantSkeleton /><RestaurantSkeleton /></View> } */}
 
-            {/* {restaurantsAreLoaded && featuredCategories?.map((category) => (
-                <FeaturedRow
-                key={category._id}
-                id={category._id}
-                title={category.name}
-                description={category.short_description}
-            />
+            {restaurantsAreLoaded && featuredCategories.map((category) => (
+                <View className={hidden}>
+                  <FeaturedRow
+                        key={category._id}
+                        id={category._id}
+                        title={category.name}
+                        description={category.short_description}
+                    />  
+                </View>
+                
             ))}
 
-            {!restaurantsAreLoaded && <View className='pt-2'><RestaurantSkeleton /><RestaurantSkeleton /><RestaurantSkeleton /></View>} */}
+            {hideData && <View className='pt-2'><RestaurantSkeleton /><RestaurantSkeleton /><RestaurantSkeleton /></View>}
 
 
         </ScrollView>
